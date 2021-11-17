@@ -1,24 +1,19 @@
-window.addEventListener("DOMContentLoaded", function (event) {console.log("DOM fully loaded and parsed");});
-
 function calculator() {
-    let number = Number(document.getElementById("number").value);
-    let cost = Number(document.getElementById("cost").value);
-
-
-    let re = new RegExp(/^[0-9]+$/i);
-    if (
-        !(
-            re.test(number) &&
-            re.test(cost)
-        )
-    ) {
-        alert("Проверьте правильность введённых данных, необходимо вводить только целые положительные числа!");
-    } else if (number == "") {
-        alert("Не указана цена товара");
-    } else if (cost == "") {
-        alert("Не указано количество товара");
-    } else {
-        const result = number * cost;
-        document.getElementById("result").innerHTML = "Итоговая стоимость: " + result + " рублей";
+    let price;
+    let value;
+    price = document.getElementById("cost").value;
+    value = document.getElementById("number").value;
+    const regular = /^[1-9][0-9]*$/;
+    if (!regular.test(price) || !regular.test(value)) {
+        alert("Неправильно введены значения");
+        return true;
     }
+    let totalResult = document.getElementById("result");
+    totalResult.innerHTML = parseInt(price) * parseInt(value);
+    return false;
 }
+window.addEventListener('DOMContentLoaded', function (calculator) {
+    console.log("DOM fully loaded and parsed");
+    let param = document.getElementById("result");
+    param.addEventListener("click", calculator());
+});
