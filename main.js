@@ -6,8 +6,7 @@ function calculator() {
     const regular = /^[1-9][0-9]*$/;
     if (!regular.test(price) || !regular.test(value)) {
         alert("Неправильно введены значения");
-        return true;
-    }
+        return true;}
     let totalResult = document.getElementById("result");
     totalResult.innerHTML = parseInt(price) * parseInt(value);
     return false;
