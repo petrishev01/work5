@@ -11,8 +11,8 @@ function calculator() {
     totalResult.innerHTML = parseInt(price) * parseInt(value);
     return false;
 }
-window.addEventListener('DOMContentLoaded', function (calculator) {
+window.addEventListener('DOMContentLoaded', function (event) {
     console.log("DOM fully loaded and parsed");
-    let param = document.getElementById("result");
-    param.addEventListener("click", calculator());
+    let param = document.getElementById("calc");
+    param.addEventListener("click", calculator);
 });
